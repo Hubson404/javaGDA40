@@ -50,13 +50,13 @@ public class LambdaReferencjeDometodPrzyklady {
         nazwyProduktow.add("Maslo");
         nazwyProduktow.add("Chleb");
 
-        Product p = new Product("Kawa");
-        for (String produkt : nazwyProduktow) {
-            p.czyJestemProduktem(produkt);
+        Product produkt = new Product("Kawa");
+        for (String nazwaProduktu : nazwyProduktow) {
+            produkt.czyJestemProduktem(nazwaProduktu);
         }
         // nazwaProduktow.for
-        nazwyProduktow.forEach(nazwaProduktu -> p.czyJestemProduktem(nazwaProduktu));
-        nazwyProduktow.forEach(p::czyJestemProduktem);
+        nazwyProduktow.forEach(nazwaProduktuZListy -> produkt.czyJestemProduktem(nazwaProduktuZListy));
+        nazwyProduktow.forEach(produkt::czyJestemProduktem);
 
 
 
