@@ -2,6 +2,7 @@ package lambda;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -10,7 +11,9 @@ public class LambdaReferencjeDometodPrzyklady {
     public static void main(String[] args) {
         // 1) Klasa::metodaStatyczna
         // 2) obiekt::metodaInstacji
+
         // 3) Klasa::metodaInstancji
+
         // 4) Referencje do konstruktora
 
         List<String> surNames = new ArrayList<>();
@@ -23,6 +26,13 @@ public class LambdaReferencjeDometodPrzyklady {
         surNames.forEach(surname -> System.out.println(surname));
         surNames.forEach(System.out::println);
 
+        Map<String, String> mapa = null;
+        mapa.forEach((key, value) -> metodka(key, value));
+        mapa.forEach(LambdaReferencjeDometodPrzyklady::metodka);
+
+        for (String surname : surNames) {
+            metodka(surname);
+        }
         surNames.forEach(surname -> metodka(surname));
         surNames.forEach(LambdaReferencjeDometodPrzyklady::metodka);
 
@@ -36,11 +46,18 @@ public class LambdaReferencjeDometodPrzyklady {
         nazwyProduktow.add("Maslo");
         nazwyProduktow.add("Chleb");
 
+
+
+
+
         // 2) obiekt::metodaInstacji
         // Wszystkie parametry są przekazywane metodyInstancji
         Product p = new Product("Kawa");
         nazwyProduktow.forEach(nazwaProduktu -> p.czyJestemProduktem(nazwaProduktu));
         nazwyProduktow.forEach(p::czyJestemProduktem);
+
+
+
 
         // Pierwszy parametr staje się odbiorcą metody i wszystkie inne parametry są przekazywane do metody.
         // 3) Klasa::metodaInstancji
@@ -62,7 +79,10 @@ public class LambdaReferencjeDometodPrzyklady {
         return 0;
     }
 
-
+    private static int metodka(String s, String s2) {
+        System.out.println(s + " " + s);
+        return 0;
+    }
 
     // 2) obiekt::metodaInstacji
     public void metodaInstacji(String s) {
