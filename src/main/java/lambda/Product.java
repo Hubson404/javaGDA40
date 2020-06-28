@@ -7,9 +7,7 @@ public class Product {
     public Product(String name) {
         this.name = name;
     }
-
-
-    public void czyJestemProduktem(String s) {
-
+    public boolean czyJestemProduktem(String s) {
+        return name.equals(s);
     }
 }

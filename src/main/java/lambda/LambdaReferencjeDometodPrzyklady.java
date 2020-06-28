@@ -10,6 +10,7 @@ public class LambdaReferencjeDometodPrzyklady {
 
     public static void main(String[] args) {
         // 1) Klasa::metodaStatyczna
+
         // 2) obiekt::metodaInstacji
 
         // 3) Klasa::metodaInstancji
@@ -41,18 +42,19 @@ public class LambdaReferencjeDometodPrzyklady {
 
 
 
+        // 2) obiekt::metodaInstacji
+        // Wszystkie parametry są przekazywane metodyInstancji
+
         List<String> nazwyProduktow = new ArrayList<>();
         nazwyProduktow.add("Mleko");
         nazwyProduktow.add("Maslo");
         nazwyProduktow.add("Chleb");
 
-
-
-
-
-        // 2) obiekt::metodaInstacji
-        // Wszystkie parametry są przekazywane metodyInstancji
         Product p = new Product("Kawa");
+        for (String produkt : nazwyProduktow) {
+            p.czyJestemProduktem(produkt);
+        }
+        // nazwaProduktow.for
         nazwyProduktow.forEach(nazwaProduktu -> p.czyJestemProduktem(nazwaProduktu));
         nazwyProduktow.forEach(p::czyJestemProduktem);
 
